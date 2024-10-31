@@ -1,8 +1,7 @@
 FROM nginx
+COPY  code /usr/share/nginx/html
+RUN rm -rf /etc/nginx/nginx.conf 
+RUN rm -rf /etc/nginx/conf.d/default.conf 
 
-# Remove the default HTML directory and NGINX configuration file
-RUN rm -rf /usr/share/nginx/html/* \
-    && rm -f /etc/nginx/nginx.conf
 
-# Copy your custom NGINX configuration
 COPY nginx.conf /etc/nginx/nginx.conf
