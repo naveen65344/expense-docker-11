@@ -1,9 +1,7 @@
-FROM node:20
-EXPOSE 8080
-ENV DB_HOST="mysql"
-RUN mkdir /opt/server
-WORKDIR /opt/server
-COPY *.js .
-COPY *.json .
+FROM node
+RUN mkdir app
+RUN WORKDIR app
+COPY *.js app
+COPY *.json app
 RUN npm install
 CMD ["node","index.js"]
